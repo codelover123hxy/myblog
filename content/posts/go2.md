@@ -7,7 +7,7 @@ draft: true
 author: "hxy"
 authorLink: ""
 license: ""
-tags: [""]
+tags: ["技巧"]
 categories: [""]
 featuredImage: ""
 featuredImagePreview: ""
@@ -26,7 +26,7 @@ comment:
 
 ### 多表联查的实现
 谈到多表联查，有多种实现方法。比较传统的为数据库课程所教的视图方法。然而灵活性较差。
-在Springboot中，采用映射表实现，而go+gin+gorm框架中，又有所不同。
+在Springboot中，采用映射表实现，而**go+gin+gorm**框架中，又有所不同。
 下面笔者通过一个案例介绍多表联查的应用场景。
 
 #### 场景概述
@@ -64,6 +64,46 @@ left join、right join和join的区别。
 left join以左表为主，若右表没有查到，置空值。
 right join反之。
 join（inner join）要求严格匹配。
+
+#### Preload的使用
+
+在多表联查业务中，有时会出现返回的结构体中某个属性的类型为实体/实体列表。
+
+此时，可以使用Preload简化代码。
+
+```go
+// 返回结构体
+type BoardResult struct {
+	ID          int                 `json:"id" gorm:"primaryKey"`
+	SubmitterId int                 `json:"submitterId"`
+	Submitter   string              `json:"submitter"`
+	Title       string              `json:"title"`
+	Desc        string              `json:"desc"`
+	SubmitTime  utils.CustomTime    `json:"submitTime"`
+	Images      []models.BoardImage `json:"images" gorm:"foreignKey:BoardId"`
+}
+// 事实上，Images的类型为BoardImage实体组成的列表。
+func GetBoardById(c *gin.Context) {
+	var result BoardResult
+	boardId := c.Param("boardId")
+	if err := config.DB.Table("board").
+		Select("board.*, user.name as submitter").
+		Preload("Images"). // 预加载 BoardImage
+		Joins("left join board_image on board.id = board_image.board_id").
+		Joins("left join user on user.id = board.submitter_id").
+		Where("board.id = ?", boardId).
+		Find(&result).Error; err != nil {
+		// 处理错误
+		log.Println("Error occurred while fetching board results with images:", err)
+		fmt.Println(err)
+		utils.JsonErrorResponse(c, err)
+		return
+	}
+	utils.JsonSuccessResponse(c, result)
+}
+```
+
+
 
 ### 自定义时间的实现
 go语言的time.Time默认返回的不是YYYY-MM-dd HH:mm:ss的类型。
@@ -116,13 +156,23 @@ func (ct *CustomTime) UnmarshalJSON(data []byte) error {
 
 ### gin框架接收ajax请求
 - GET 请求
+
+```go
 c.Query("") //获取query参数
 c.Param("") //获取path参数
+```
+
+
 
 - POST 请求
+
+```go
 c.shouldBindJson(&postForm) //获取json
 c.PostForm() // 获取form-data格式
 c.FormFile("file") //接收文件
+```
+
+
 
 ### 发送ajax请求
 相比java而言，go发送请求更加简单。使用"net/http"库
@@ -135,5 +185,50 @@ if err := json.Unmarshal(body, &result); err != nil {
 }
 ```
 - POST请求
-- json
-- form
+
+  - json
+
+  ```go
+  jsonData := map[string]interface{}{
+  	"key1": "value1",
+      "key2": "value2",
+  }
+  // 发送 HTTP 请求到微信 API
+  body, _ := json.Marshal(jsonData)
+  req, _ := http.NewRequest("POST", url, bytes.NewBuffer(body))
+  req.Header.Set("Content-Type", "application/json")
+  client := &http.Client{}
+  resp, err := client.Do(req)
+  fmt.Println(resp)
+  if err != nil {
+  	return err
+  }
+  defer resp.Body.Close()
+  // 读取响应内容
+  if body, err = ioutil.ReadAll(resp.Body); err != nil {
+  	fmt.Println("Error reading response body:", err)
+  	return err
+  }
+  ```
+
+  - form-data
+
+  ```go
+  formData := url.Values{
+      "key1": {"value1"},
+      "key2": {"value2"},
+  }
+  // 发送 POST 请求
+  resp, err := http.PostForm("https://example.com/api", formData)
+  if err != nil {
+      fmt.Println("Error:", err)
+      return
+  }
+  defer resp.Body.Close() // 读取响应
+  if body, err := ioutil.ReadAll(resp.Body); err != nil {
+      fmt.Println("Error reading response body:", err)
+      return
+  }
+  ```
+
+  
