@@ -29,7 +29,6 @@ comment:
 在Springboot中，采用映射表实现，而**go+gin+gorm**框架中，又有所不同。
 下面笔者通过一个案例介绍多表联查的应用场景。
 
-#### 场景概述
 有一个合唱团，声部长负责批改作业。该接口需要查询声部长负责声部的所有人作业情况。
 实体表有用户表、合唱团表、用户-合唱团表、作业表、作业提交表。
 
@@ -219,7 +218,7 @@ if err := json.Unmarshal(body, &result); err != nil {
       "key2": {"value2"},
   }
   // 发送 POST 请求
-  resp, err := http.PostForm("https://example.com/api", formData)
+  resp, err := http.PostForm(url, formData)
   if err != nil {
       fmt.Println("Error:", err)
       return

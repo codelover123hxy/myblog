@@ -25,27 +25,38 @@ comment:
 author: "hxy"
 ---
 
-# 前端项目集锦
-## 原生
+# 前端杂谈（一）
+
+## 前端项目集锦
+
+- ### 原生
+
 叮当葫芦-认知障碍数据分析平台
 ["认知障碍数据分析平台"](http://124.220.179.33:82/)
-## Jquery
 
-## Vue
-### vue-element-admin
+- ### Jquery
+
+- ### Vue
+
+#### vue-element-admin
 ["水果电商后台服务端"](https://management.aiyin.club/)
-### uniapp
 
-## React
+- ### uniapp
+
+- ### React
+
 ["智问领航"](http://47.120.38.169:86/)
-### ant-design-pro
 
-# 函数封装思维
-##  request.js封装
+#### ant-design-pro
+
+------
+
+## 函数封装思维
+###  API接口封装
 封装request.js用于ajax请求
 利用Promise的特性，封装axios、ajax、uni.request、taro.request等等
 
-### 示例
+#### 示例
 ```javascript
 export const request = ({ url, method, data, headers }) => {
     return new Promise((resolve, reject) => {
@@ -125,30 +136,47 @@ export const request = (options) => {
   })
 }
 ```
-**核心：** 
+#### 核心：
+
+使用promise封装请求函数。
+
 ```javascript
 new promise((resolve, reject) => {if (xxx) resolve(xxx); else reject(xxx)})
 ```
 
-### 获取数据函数
+#### 封装接口
 ```javascript
-const async getData = () => {
-  const res = await getDataAPI()
+// api.js
+const api = {
+    user: {
+        list: '/api/user/list',
+        query: '/api/user/query',
+        ...
+    }
 }
-
+    
+// user.js
 const getDataAPI = () => {
     return request({
-        url: '',
+        url: api.user.list,
         method: 'GET',
         data
     })
 }
+
+// home.jsx
+const async getUsers = () => {
+  const res = await getUsersAPI()
+  if (res.code === 200) {
+      ...
+  }
+}
 ```
 
-## 自定义组件封装
+### 自定义组件封装
 ### Vue
 #### 选项式API
-```javascript
+```vue
 <template>
     <div>...</div>
 </template>
@@ -167,9 +195,10 @@ export default {
         func() { }
     }
 }
+</script>
 ```
 #### 组合式API
-```javascript
+```vue
 <template>
     <div>...</div>
 </template>
@@ -184,8 +213,8 @@ const func = () => {
 </script>
 ```
 ### React
-```javascript
-const MyComponent = () => {
+```jsx
+const MyComponent = (props) => {
     const data = {
         ...
     }
@@ -193,6 +222,9 @@ const MyComponent = () => {
     const func = () => {
         ...
     }
+    const [data, setDate] = useState({})
+	useLoad(()=>{})
+    useEffect(()=>{})
 
     return (
         <div>...</div>

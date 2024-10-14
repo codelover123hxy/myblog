@@ -7,7 +7,7 @@ draft: true
 author: "hxy"
 authorLink: ""
 license: ""
-tags: [""]
+tags: ["技巧"]
 categories: [""]
 featuredImage: ""
 featuredImagePreview: ""
@@ -24,7 +24,9 @@ comment:
   enable: true
 ---
 
-### taro 配置经验
+# taro 开发小程序
+
+## 配置
 
 
 #### 遇到问题
@@ -42,6 +44,10 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
 ```
 
 ### 解决方法
+
+
+
+
 
 
 

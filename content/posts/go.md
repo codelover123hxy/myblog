@@ -62,22 +62,26 @@ go run main.go
 相比于java，go的打包部署更为简单。
 总结而言，采用.bat + .ssh方式，一键部署。
 
-编写.bat文件实现一键上传
+编写.bat文件实现一键上传。
 ```bat
-@echo off
 set GOOS=linux
 set GOARCH=amd64
-go build -o server_name main.go
+go build -o chorus_server main.go
 
-scp -P port -i C:\Users\PC\.ssh\id_rsa_ddhl chorus_server config.yaml username@ip:your-path
+ssh tidechoir "systemctl --user stop tidechoir"
+scp -i C:\Users\PC\.ssh\id_rsa_tidechoir -r chorus_server config.yaml ubuntu@175.24.130.180:/home/ubuntu/backend/tidechoir
 
-ssh -p port -i C:\Users\PC\.ssh\id_rsa_ddhl username@ip "/{your-path}/startup.sh"
+ssh tidechoir "systemctl --user start tidechoir"
 ```
 #### 注意
+```bat
 set GOOS=linux
-
 set GOARCH=amd64
+```
+
 两句话不可省略，否则默认打包成exe。
+
+由于在~/.ssh/config中配置了ssh免密登录，直接ssh + {设置的Host名称} 即可快捷登录。
 
 ### 配置ssl证书
 类似于java，go的配置更为简洁。
