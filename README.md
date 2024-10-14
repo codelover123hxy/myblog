@@ -13,4 +13,4 @@
 ![alt text](./static/image/image.png)
 
 ## 博客链接
-[我的博客]("https://blog.aiyin.club")
+[我的博客](https://blog.aiyin.club)
