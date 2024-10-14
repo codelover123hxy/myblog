@@ -42,7 +42,7 @@ type = tcp
 local_port = xxx ;本机端口
 local_ip = 127.0.0.1
 remote_port = xxx ;远程端口
-``` 
+```
 frps.ini对应
 ```ini
 [common]
