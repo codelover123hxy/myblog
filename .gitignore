@@ -1,0 +1,8 @@
+# 忽略 Hugo 生成的 public 文件夹
+/public/
+/resources/
+/*.log
+*.bak
+*.swp
+*.lock
+
