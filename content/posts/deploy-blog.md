@@ -49,7 +49,7 @@ hugo本身提供了posts、tags、categories，并没有提供友链。因此需
 
 并且在content/friend/index.md中加入
 
-```markdown
+```html
 ---
 hiddenFromSearch: true
 ---
@@ -58,7 +58,7 @@ hiddenFromSearch: true
 
 至此，友链配置完毕，博客总览如下。
 
-![image-20241015020743970](..\..\static\image\image-20241015020743970.png)
+![image-20241015020743970](..\image-20241015020743970.png)
 
 ### Typora+Github同步部署
 
@@ -66,7 +66,7 @@ hiddenFromSearch: true
 
 仓库如下：
 
-![image-20241015015634271](..\..\static\image\image-20241015015634271.png)
+![image-20241015015634271](..\image-20241015015634271.png)
 
 然而手动更新仍十分麻烦，每次都需要在服务器上git pull更新最新内容。
 
