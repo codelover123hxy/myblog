@@ -3,7 +3,7 @@ title: "Go项目部署+实战（二）"
 subtitle: ""
 date: 2024-10-13T15:33:14+08:00
 lastmod: 2024-10-13T15:33:14+08:00
-draft: true
+draft: false
 author: "hxy"
 authorLink: ""
 license: ""
@@ -24,7 +24,10 @@ comment:
   enable: true
 ---
 
+## go项目部署+实战（二）
+
 ### 多表联查的实现
+
 谈到多表联查，有多种实现方法。比较传统的为数据库课程所教的视图方法。然而灵活性较差。
 在Springboot中，采用映射表实现，而**go+gin+gorm**框架中，又有所不同。
 下面笔者通过一个案例介绍多表联查的应用场景。

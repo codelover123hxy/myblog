@@ -1,7 +1,7 @@
 ---
 title: "部署技巧——hugo博客"
 date: 2024-10-15T12:19:47+08:00
-draft: true
+draft: false
 author: hxy
 categories: ["部署技巧"]
 tags: ["经验"]
