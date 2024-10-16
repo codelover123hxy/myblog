@@ -22,4 +22,4 @@ jobs:
 
       - name: Deploy
         run: |
-          ssh -i ~/.ssh/id_rsa ubuntu@tidechoir.cn "/home/hxy/myblog/update.sh"
+          ssh -i ~/.ssh/id_rsa -p 223 root@aiyin.club "/home/hxy/myblog/update.sh"
