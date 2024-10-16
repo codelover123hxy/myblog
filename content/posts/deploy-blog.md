@@ -131,4 +131,4 @@ jobs:
           ssh -i ~/.ssh/id_rsa -p 223 username@ip "xxx.sh"
 ```
 
-这样可以使得git push时自动执行后面的脚本。不需要手动git pull。
+这样可以使得git push时自动执行后面的脚本。不需要手动 git pull。
