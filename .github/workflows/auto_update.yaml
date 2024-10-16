@@ -18,8 +18,8 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 47.120.38.169 >> ~/.ssh/known_hosts
+          ssh-keyscan -H -p 223 47.120.38.169 >> ~/.ssh/known_hosts
 
-      # - name: Deploy
-      #   run: |
-      #     ssh -i ~/.ssh/id_rsa -p 223 root@47.120.38.169 "/home/hxy/myblog/update.sh"
+      - name: Deploy
+        run: |
+          ssh -i ~/.ssh/id_rsa -p 223 root@47.120.38.169 "/home/hxy/myblog/update.sh"
