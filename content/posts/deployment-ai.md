@@ -29,3 +29,4 @@ vim /etc/profile.d/clash.sh
 # 把上面所有的 127.0.0.1 修改为自己的 ip 地址，保存退出
 source /etc/profile.d/clash.sh
 ```
+

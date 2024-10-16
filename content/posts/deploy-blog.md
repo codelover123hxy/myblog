@@ -53,12 +53,12 @@ hugo本身提供了posts、tags、categories，并没有提供友链。因此需
 ---
 hiddenFromSearch: true
 ---
-{{<friend name="name" url="url" logo="path-to-logo" word="blog-name">}}
+{{/*%<friend name="name" url="url" logo="path-to-logo" word="blog-name">%*/}}
 ```
 
 至此，友链配置完毕，博客总览如下。
 
-![image-20241015020743970](/image/static/image-20241015020743970.png)
+![image-20241015020743970](https://image.familystudy.cn/image/generic/image-20241015020743970.png)
 
 ### Typora+Github同步部署
 
@@ -86,3 +86,18 @@ hugo
 至此，仅需每次将博客在Typora中编辑好，上传github即可。若要进一步“偷懒”，还可以编写.bat文件。
 
 这样连git add xxx、git commit、git push xxx等都不需要写了。
+
+#### picgo + typora上传图片
+
+由于hugo的图片存在static中，使用绝对路径渲染，无法在markdown中预览，因此采用图床的方法。
+
+在typora中配置picgo，如图所示，至此将实现图片自动上传。
+
+![image-20241016231210425](https://image.familystudy.cn/image/generic/image-20241016231210425.png)
+
+#### github action自动执行脚本
+
+除了定时任务外，还可使用github action完成commit后自动执行脚本。
+
+![image-20241016231526147](https://image.familystudy.cn/image/generic/image-20241016231526147.png)
+
