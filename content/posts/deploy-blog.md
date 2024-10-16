@@ -101,3 +101,34 @@ hugo
 
 ![image-20241016231526147](https://image.familystudy.cn/image/generic/image-20241016231526147.png)
 
+可在.github/workflows里面编写.yaml文件。
+
+```yaml
+name: Deploy My Blog
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ip >> ~/.ssh/known_hosts
+
+      - name: Deploy
+        run: |
+          ssh -i ~/.ssh/id_rsa -p 223 username@ip "xxx.sh"
+```
+
+这样可以使得git push时自动执行后面的脚本。不需要手动git pull。
