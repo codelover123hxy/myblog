@@ -18,6 +18,5 @@ tags: ["经验贴"]
 - 《服务外包大赛》作为队长主导项目，完成项目开发和算法部署。
 - 《电子商务竞赛》磨炼PPT技巧，上台答辩。
 - 《互联网+大赛》类似于电商比赛，难度更大，竞争激烈。
--   xxxxxxxxxx vim /etc/profile.d/clash.sh# 把上面所有的 127.0.0.1 修改为自己的 ip 地址，保存退出source /etc/profile.d/clash.shbash
 #### 科研
 套磁找导师 找准方向 阅读论文 创新idea
