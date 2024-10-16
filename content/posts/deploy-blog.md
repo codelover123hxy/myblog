@@ -124,11 +124,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ip >> ~/.ssh/known_hosts
+          ssh-keyscan -H ip -p port >> ~/.ssh/known_hosts # 若端口号不是22，不能省略
 
       - name: Deploy
         run: |
-          ssh -i ~/.ssh/id_rsa -p 223 username@ip "xxx.sh"
+          ssh -i ~/.ssh/id_rsa -p port username@ip "xxx.sh"
 ```
 
-这样可以使得git push时自动执行后面的脚本。不需要手动 git pull。
+这样可以使得git push时自动执行后面的脚本。不需要手动登录服务器 git pull。
