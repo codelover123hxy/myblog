@@ -48,11 +48,10 @@ Query-Focused Summarization: QFS
 QFS 会根据用户提供的查询，提取与之相关的核心信息，省略与查询无关的内容。
 
 ### 论文核心图
-<p align="center">
-  <img src="../image.png" alt="alt text" width="700">
-</p>
+![](https://image.familystudy.cn/image/generic/image-1729089195232-2.png)
 
 ### 实现过程
+
 提出了Graph RAG方法，基于LLM汲取知识图谱的全局摘要。
 为了评估这个方法，我们使用一个LLM去生成多样的集合，包含以活动为中心的意义构建问题，从短小的描述
 

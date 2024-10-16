@@ -91,7 +91,7 @@ def chat_chat(
         return self._httpx_stream2generator(response, as_json=True)
 ```
 
-#### 统一接口管理
+#### xxxxxxxxxx ​​​​python
 ```python
 app.post("/chat/chat",
              tags=["Chat"],

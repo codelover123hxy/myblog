@@ -106,7 +106,9 @@ server{
 - 编写后端上传接口，用apifox上传
 - 使用picgo工具上传
 
-1. ![alt text](/image-2.png)
+1. 
+
+   ![](https://image.familystudy.cn/image/generic/image-2.png)
 
 2. 编写.json文件。可存入C:\Users\{username}\.config\picgo目录
 ```json
@@ -122,7 +124,11 @@ server{
 	}
 }
 ```
-3. ![alt text](/image-3.png)
+3. 
+
+![alt text](https://image.familystudy.cn/image/generic/image-3.png)
+
 ### 开启一键上传
+
 事实上，有诸多方法上传。仅需连接**ssh + 移动文件**
 也可前端利用组件库完成快速上传。

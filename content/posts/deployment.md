@@ -12,7 +12,7 @@ ssh -p port username@ip
 ```
 
 vscode
-编辑 C:\Users\{username}\.ssh\config
+编辑 ~\.ssh\config
 ```ini
 # config
 Host 云服务器
@@ -34,7 +34,7 @@ vim ~/.ssh/authorized_keys
 ### vscode配置
 ```ini
 # .config文件
-Host name # 如云服务器
+Host name # 如 aliyun
   HostName host # xx.xx.xx.xx
   User username
   Port port
@@ -42,10 +42,13 @@ Host name # 如云服务器
 ```
 ### powershell登录
 ```powershell
-ssh -i file-path -p port username@host
+ssh -i secret-path -p port username@host # 如果秘钥在~/.ssh/id_rsa文件中，可省略-i secret-path。
 ```
 
+也可快捷登录：ssh {Host}，如 ssh aliyun
+
 ## 调整秘钥权限教程
+
 #### 1. 打开 PowerShell 或命令提示符：
 以 管理员身份 运行 PowerShell。
 #### 2. 执行以下命令来移除 Everyone 用户的权限并只允许当前用户访问文件：
@@ -69,8 +72,9 @@ C:\Users\PC\.ssh\id_rsa PC:(F)
 这表示只有 PC 用户拥有完全控制权限。
 ```
 #### 4. 再次尝试 SSH 连接：
-bash
-ssh -p **port** -i **secret_url** **username@ip**
+```powershell
+ssh -p port -i secret_path username@ip
+```
 
 ## 后端守护进程部署
 - 使用systemd守护进程

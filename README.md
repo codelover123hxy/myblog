@@ -10,7 +10,7 @@
 - 个人经历
 
 ## 界面展示
-![alt text](./static/image/image.png)
+![alt text](https://image.familystudy.cn/image/generic/image.png)
 
 ## 博客链接
 [我的博客](https://blog.aiyin.club)

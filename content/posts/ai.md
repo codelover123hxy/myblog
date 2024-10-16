@@ -1,10 +1,10 @@
 ---
-title: "NLP学习(1)"
+title: "NLP学习笔记(1)"
 subtitle: ""
 date: 2024-09-16T20:31:08+08:00
 lastmod: 2024-09-16T20:31:08+08:00
 draft: true
-author: ""
+author: "hxy"
 authorLink: ""
 license: ""
 tags: [""]
@@ -29,4 +29,6 @@ author: "hxy"
 
 ### Word2Vec
 
-![image-20241015001027049](C:\Users\PC\AppData\Roaming\Typora\typora-user-images\image-20241015001027049.png)
+![image-20241015001027049](https://image.familystudy.cn/image/generic/image-20241015001027049.png)
+
+分析两个词中间是某个词的概率。
