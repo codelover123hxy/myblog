@@ -1,6 +1,6 @@
 ---
 title: "transformer位置编码研究"
-date: 2024-09-07T12:19:47+08:00
+date: 2024-10-24T12:19:47+08:00
 draft: false
 author: hxy
 categories: ["科研"]
