@@ -9,7 +9,7 @@ tags: ["源码解析"]
 
 ## 部署
 按照read-me.md进行配置
-### 注意：
+### xxxxxxxxxx let arr = [{},{}]let arr1 = arr.forEach((item, index) => {item.a = 1})arr.filter(item => {})javascript
 1. 需要git clone huggingface库到本地/自己服务器
 2. 安装llama_index注意细节
 ```powershell

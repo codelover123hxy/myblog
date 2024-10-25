@@ -32,3 +32,4 @@ author: "hxy"
 ![image-20241015001027049](https://image.familystudy.cn/image/generic/image-20241015001027049.png)
 
 分析两个词中间是某个词的概率。
+

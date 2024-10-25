@@ -65,6 +65,8 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
 
 该应用场景需要实现位置签到功能。需要获取位置和附近地图。事实上，使用<Map>组件可渲染地图，无需刻意调用第三方接口。
 
+## 录音组件合成
 
+在子组件中，使用useEffect的hook监听组件的生成与消亡。
 
 还有其他一些第三方工具，可自行查阅资料，此处不再赘述。
