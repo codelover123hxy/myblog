@@ -67,6 +67,8 @@ paginate = 12
       table = true
       taskList = true
       typographer = true
+      [markup.goldmark.extensions.math]
+        enable = true
     [markup.goldmark.renderer]
       # 是否在文档中直接使用 HTML 标签
       unsafe = true

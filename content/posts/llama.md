@@ -1,6 +1,6 @@
 ---
 title: "transformer位置编码研究"
-date: 2024-09-07T12:19:47+08:00
+date: 2024-10-24T12:19:47+08:00
 draft: false
 author: hxy
 categories: ["科研"]
@@ -36,13 +36,13 @@ $$
 即
 $$
 \left[ \begin{matrix}
-PE_{pos} = [sin(\omega_1\sdot{pos})] \\
-PE_{pos} = [cos(\omega_1\sdot{pos})] \\
-PE_{pos} = [sin(\omega_2\sdot{pos})] \\
-PE_{pos} = [cos(\omega_2\sdot{pos})] \\
-\sdot \\
-PE_{pos} = [sin(\omega_{\frac{d}{2}}\sdot{pos})] \\
-PE_{pos} = [cos(\omega_{\frac{d}{2}}\sdot{pos})]
+PE_{pos} = [sin(\omega_1\cdot{pos})] \\\
+PE_{pos} = [cos(\omega_1\cdot{pos})] \\\
+PE_{pos} = [sin(\omega_2\cdot{pos})] \\\
+PE_{pos} = [cos(\omega_2\cdot{pos})] \\\
+\ldots \\\
+PE_{pos} = [sin(\omega_{\frac{d}{2}}\cdot{pos})] \\\
+PE_{pos} = [cos(\omega_{\frac{d}{2}}\cdot{pos})]
 \end{matrix} \right]
 $$
 
@@ -52,7 +52,7 @@ $$
 
 由于 
 $$
-0 \le \frac{2i}{d_{model}} \le 1, \\
+0 \le \frac{2i}{d_{model}} \le 1, \\\
 有 1 \le 10000^{\frac{2i}{d_{model}}} \le 10000
 $$
 另外可观察到，对于同一个向量分量，PE随着pos呈现正弦或余弦波动。
@@ -83,6 +83,7 @@ $$
 (\rho cos\theta, \rho sin\theta \cdot i)
 $$
 **torch.arange**：pytorch中生成有序列表。
+
 **torch.ones_like**：生成全为1的形状相同tensor。
 
 ```python

@@ -26,8 +26,6 @@ comment:
 
 ## go项目部署+实战（一）
 ### 写在前面
-xxxxxxxxxx let arr = [{},{}]let arr1 = arr.forEach((item, index) => {item.a = 1})arr.filter(item => {})javascript
-
 花费了一晚上的时间完成配置以及初步编程，并记录了部署和实战过程中的一些技巧和问题。
 
 ### 项目伊始
