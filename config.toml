@@ -1,6 +1,6 @@
 baseURL = 'https://blog.aiyin.club/'
 languageCode = 'en-us'
-title = '消失在彩霞里的博客'
+title = '消失在彩霞里的Blog'
 theme = "LoveIt"
 paginate = 12
 
@@ -88,9 +88,9 @@ paginate = 12
   # LoveIt 新增 | 0.2.0 日期格式
   dateFormat = "2006-01-02"
   # 网站标题, 用于 Open Graph 和 Twitter Cards
-  title = "消失在彩霞里的博客"
+  title = "消失在彩霞里的Blog"
   # 网站描述, 用于 RSS, SEO, Open Graph 和 Twitter Cards
-  description = "消失在彩霞里的博客"
+  description = "消失在彩霞里的Blog"
   
   
 # 页面头部导航栏配置
@@ -104,7 +104,7 @@ paginate = 12
     # LOGO 的 URL
     logo = ""
     # 标题名称
-    name = "消失在彩霞里的博客"
+    name = "消失在彩霞里的Blog"
     # 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
     pre = ""
     # 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
@@ -149,9 +149,9 @@ paginate = 12
     # Gravatar 邮箱，用于优先在主页显示的头像
     gravatarEmail = ""
     # 主页显示头像的 URL
-    avatarURL = "https://image.familystudy.cn/image/generic/avatar.jpg"
+    avatarURL = "https://media.tidechoir.cn/image/avatar.jpg"
     # LoveIt 更改 | 0.2.7 主页显示的网站标题 (支持 HTML 格式)
-    title = "消失在彩霞里的博客"
+    title = "消失在彩霞里的Blog"
     # 主页显示的网站副标题 (允许 HTML 格式)
     subtitle = "一只爱编程的小马"
     # 是否为副标题显示打字机动画

@@ -31,8 +31,6 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "/app/your-app-name.jar"]
 ```
 
-
-
 ```yaml
 version: '3.8'
 
@@ -61,5 +59,4 @@ services:
       - "8080:8080"
     depends_on:
       - mysql  # 确保 MySQL 服务先启动
-
 ```

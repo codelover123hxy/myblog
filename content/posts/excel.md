@@ -1,8 +1,8 @@
 ---
-title: "NLP学习笔记(1)"
+title: "Excel"
 subtitle: ""
-date: 2024-09-16T20:31:08+08:00
-lastmod: 2024-09-16T20:31:08+08:00
+date: 2025-04-11T14:14:30+08:00
+lastmod: 2025-04-11T14:14:30+08:00
 draft: true
 author: "hxy"
 authorLink: ""
@@ -22,14 +22,13 @@ share:
   enable: true
 comment:
   enable: true
-author: "hxy"
 ---
 
-## 词向量的转化
+## Excel高级用法
+笔者在实践中发现，Excel的一些高级用法十分好用，例如VBA宏，能够做一个简易录入系统。
+这篇博客对于一些方法进行展示
 
-### Word2Vec
+### 某一列需要在之前的不重复列中选择
 
-![image-20241015001027049](https://image.familystudy.cn/image/generic/image-20241015001027049.png)
 
-分析两个词中间是某个词的概率。
 

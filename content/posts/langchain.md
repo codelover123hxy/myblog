@@ -242,5 +242,47 @@ result = agent_executor.invoke({"input": query, "history": []})
 print(result['output'])
 ```
 
+以上还有另一种编写方式，更为简单：
+```python
+from langchain.tools import Tool
+from langchain.agents import initialize_agent, AgentType
+from langchain_openai import ChatOpenAI
+
+# 定义 calculate 函数
+def calculate(expression: str) -> float:
+    """
+    执行数学运算。
+
+    :param expression: 数学表达式，例如 "3 + 5" 或 "10 / 2"
+    :return: 计算结果
+    """
+    try:
+        print("调用工具")
+        print(expression)
+        return eval(expression)  # 使用 eval 执行表达式
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+# 将函数封装为 Tool
+calc_tool = Tool(
+    name="calculate",
+    func=calculate,
+    description="A tool to perform mathematical calculations. Input should be a mathematical expression, e.g., '3 + 5' or '10 / 2'."
+)
+# 定义工具列表
+tools = [calc_tool]
+# 创建 Agent
+agent = initialize_agent(
+    tools=tools,
+    llm=llm,
+    agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,  # 使用 Zero-shot ReAct 代理
+    verbose=True  # 打印详细日志
+)
+# 用户输入
+user_input = "2的10次方是多少?"
+# 调用 Agent
+response = agent.run(user_input)
+```
+
 #### 运行结果
 ![alt text](../image-2.png)

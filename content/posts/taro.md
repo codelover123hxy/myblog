@@ -32,7 +32,6 @@ comment:
 
 其中有一个有趣的发现，以往我都是左右分屏，一边用vscode写代码，另一边看模拟器展示。事实上，开发者工具本身具有终端，因此不必多此一举。
 
-
 #### 遇到问题
 ```powershell
 (base) PS E:\Desktop\WeChorus> yarn dev:weapp
@@ -48,8 +47,6 @@ info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this comm
 ```
 
 ### 解决方法
-
-
 
 ## 一些工具集成
 

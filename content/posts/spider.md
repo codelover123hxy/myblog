@@ -114,19 +114,23 @@ options = Options()
 options.add_argument('--headless')
 driver = webdriver.Firefox()
 driver.get('xxxx.html') # 用selenium登录网址
+
+# 定位元素
 slider = driver.find_element('class name', 'zfdun_slider_bar_btn')
-# 找到滑块背景图片，以获取滑块的位置信息
 slider_bg = driver.find_element('class name', 'zfdun_bgimg_jigsaw')
 large_bg = driver.find_element('class name', 'zfdun_bgimg_img')
 template_img_url = large_bg.get_attribute('src')
 img_url = slider_bg.get_attribute('src')
+
 # 获取当前页面的所有 Cookie
 cookies = driver.get_cookies()
 cookies = {cookie['name']: cookie['value'] for cookie in cookies}
 template_res = requests.get(template_img_url, cookies=cookies)
 img_res = requests.get(img_url, cookies=cookies)
+
 # 将二进制数据转化为 numpy 数组
 template_img_array = np.frombuffer(template_res.content, np.uint8)
+
 # 使用 OpenCV 解码图片
 template = cv2.imdecode(template_img_array, cv2.IMREAD_COLOR)
 # 将二进制数据转化为 numpy 数组
@@ -136,22 +140,27 @@ img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
 # 计算左边距
 left_margin = calculate_left_margin(template, img)
 print("left_margin", left_margin)
+
 # 输入用户名
 username_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'yhm')))
 username_input.send_keys(username)
+
 # 输入密码
 password_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'mm')))
 password_input.send_keys(password)
+
 # 获取滑块的初始位置和大小
 slider_width = slider.size['width']
 slider_start = slider.location['x']
 print(slider_width)
 print(large_bg.size['width'])
+
 # 模拟拖动滑块的操作
 ActionChains(driver).click_and_hold(slider).perform()
 ActionChains(driver).move_by_offset(left_margin, 0).perform()
 time.sleep(0.5)  # 可以根据实际情况调整等待时间
 ActionChains(driver).release().perform()
+
 # 登录按钮点击
 login_button = driver.find_element('id', 'dl')
 login_button.click()
